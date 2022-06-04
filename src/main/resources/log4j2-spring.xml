@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <appenders>
+ 
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--只接受程序中DEBUG級別的日誌進行處理-->
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS}] %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </Console>
+    </appenders>
+ 
+    <loggers>
+        <root level="DEBUG">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFileInfo"/>
+            <appender-ref ref="RollingFileWarn"/>
+            <appender-ref ref="RollingFileError"/>
+            <appender-ref ref="RollingFileDebug"/>
+        </root>
+ 
+        <!--記錄druid-sql的記錄-->
+        <logger name="druid.sql.Statement" level="debug" additivity="false">
+            <appender-ref ref="druidSqlRollingFile"/>
+        </logger>
+        <logger name="druid.sql.Statement" level="debug" additivity="false">
+            <appender-ref ref="druidSqlRollingFile"/>
+        </logger>
+ 
+        <!--log4j2 自帶過濾日誌-->
+        <Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
+        <Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
+        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />
+        <logger name="org.apache.sshd.common.util.SecurityUtils" level="warn"/>
+        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn" />
+        <Logger name="org.crsh.plugin" level="warn" />
+        <logger name="org.crsh.ssh" level="warn"/>
+        <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="error" />
+        <Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
+        <logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="warn"/>
+        <logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
+        <logger name="org.thymeleaf" level="warn"/>
+    </loggers>
+</configuration>
