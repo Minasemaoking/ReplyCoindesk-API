@@ -2,3 +2,8 @@
 .settings
 .metadata
 .project
+.classpath
+.factorypath
+MANIFEST.MF
+target/
+release/
