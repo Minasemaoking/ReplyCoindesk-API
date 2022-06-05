@@ -24,7 +24,7 @@ public class CurrencyMappingService {
 	}
 	
 	public CurrencyMappingDto findById(String engName) {
-		CurrencyMappingEntity currencyMappingEntity = currencyMappingDao.findById(engName).orElseThrow(() -> new IdDoesNotExistException(engName + "does not exist"));
+		CurrencyMappingEntity currencyMappingEntity = currencyMappingDao.findById(engName).orElseThrow(() -> new IdDoesNotExistException(engName + " does not exist"));
 		return new CurrencyMappingDto(currencyMappingEntity);
 	}
 	

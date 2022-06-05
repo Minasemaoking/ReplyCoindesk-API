@@ -9,6 +9,11 @@ public class CurrencyMappingDto {
 	
 	public CurrencyMappingDto() {}
 	
+	public CurrencyMappingDto(String engName, String name) {
+		this.engName = engName;
+		this.name = name;
+	}
+	
 	public CurrencyMappingDto(CurrencyMappingEntity currencyMappingEnntity) {
 		this.engName = currencyMappingEnntity.getEngName();
 		this.name = currencyMappingEnntity.getChName();
